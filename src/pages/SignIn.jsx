@@ -27,7 +27,7 @@ const SignIn = () => {
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto ">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
           <img
-            src="https://images.unsplash.com/flagged/photo-1564767609342-620cb19b2357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8a2V5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+            src="https://img.freepik.com/free-photo/member-log-membership-username-password-concept_53876-101281.jpg?size=626&ext=jpg"
             alt="key on hand"
             className="w-full rounded-2xl"
           />
