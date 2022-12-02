@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation, NavLink, useNavigate } from 'react-router-dom';
+import Logo from '../assets/rakesh-real-estate.png';
 
 const Header = () => {
   const location = useLocation();
@@ -16,9 +17,9 @@ const Header = () => {
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
         <div>
           <img
-            src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
+            src={Logo}
             alt="logo"
-            className="h-5 cursor-pointer"
+            className="h-6 cursor-pointer"
             onClick={() => {
               navigate('/');
             }}
