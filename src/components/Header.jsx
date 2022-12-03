@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../assets/rakesh-real-estate.png';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const Header = () => {
+  const [pageState, setPageState] = useState('Sign in');
   const location = useLocation();
   const navigate = useNavigate();
+
+  const auth = getAuth();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setPageState('Profile');
+      } else {
+        setPageState('Sign in');
+      }
+    });
+  }, [auth]);
 
   function pathMatchRoute(route) {
     if (route === location.pathname) {
@@ -47,12 +61,13 @@ const Header = () => {
             </NavLink>
 
             <NavLink
-              to={'/sign-in'}
+              to={'/profile'}
               className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
-                pathMatchRoute('/sign-in') && 'text-black border-b-red-500'
+                pathMatchRoute('/sign-in') ||
+                (pathMatchRoute('/profile') && 'text-black border-b-red-500')
               }`}
             >
-              Sign In
+              {pageState}
             </NavLink>
           </ul>
         </div>
