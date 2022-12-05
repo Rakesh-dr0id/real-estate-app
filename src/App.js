@@ -54,4 +54,4 @@ function App() {
 
 export default App;
 
-//! 6. Add functionality of onchange and onsubmit functions to the create listing page
+//! 8. Complete the listing item component
