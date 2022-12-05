@@ -18,15 +18,24 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/profile" element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
         </Route>
+
         <Route path="/sign-in" element={<SignIn />} />
+
         <Route path="/sign-up" element={<SignUp />} />
+
         <Route path="/forgot-password" element={<ForgotPass />} />
+
         <Route path="/offers" element={<Offers />} />
-        <Route path="/create-listing" element={<CreateListing />} />
+
+        <Route path="/create-listing" element={<PrivateRoute />}>
+          <Route path="/create-listing" element={<CreateListing />} />
+        </Route>
       </Routes>
+
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
@@ -44,3 +53,5 @@ function App() {
 }
 
 export default App;
+
+//! 6. Add functionality of onchange and onsubmit functions to the create listing page
