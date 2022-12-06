@@ -13,6 +13,7 @@ import {
   where,
   orderBy,
   getDocs,
+  deleteDoc,
 } from 'firebase/firestore';
 import ListingItem from '../components/ListingItem';
 
@@ -85,6 +86,22 @@ const Profile = () => {
 
     fetchUserListings();
   }, [auth.currentUser.uid]);
+
+  // onDelete & onEdit
+  const onDelete = async (listingID) => {
+    if (window.confirm('Are you sure you want to delete?')) {
+      await deleteDoc(doc(db, 'listings', listingID));
+      const updatedListings = listings.filter(
+        (listing) => listing.id !== listingID
+      );
+      setListings(updatedListings);
+      toast.success('Successfully Deleted the listing');
+    }
+  };
+
+  const onEdit = (listingID) => {
+    navigate(`/edit-listing/${listingID}`);
+  };
 
   return (
     <>
@@ -164,6 +181,8 @@ const Profile = () => {
                   key={listing.id}
                   id={listing.id}
                   listing={listing.data}
+                  onDelete={() => onDelete(listing.id)}
+                  onEdit={() => onEdit(listing.id)}
                 />
               ))}
             </ul>
