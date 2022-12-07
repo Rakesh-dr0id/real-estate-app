@@ -64,5 +64,3 @@ function App() {
 }
 
 export default App;
-
-//! 5.Listing page
