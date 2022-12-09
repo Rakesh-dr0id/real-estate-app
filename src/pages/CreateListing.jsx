@@ -106,9 +106,9 @@ const CreateListing = () => {
     //     console.log(data);
     //   }
 
-    if (!geolocationEnabled) {
-      geolocation.lat = latitude;
-      geolocation.lng = longitude;
+    if (geolocationEnabled) {
+      geolocation.lat = parseFloat(latitude);
+      geolocation.lng = parseFloat(longitude);
     }
 
     const storeImage = async (image) => {
@@ -224,7 +224,7 @@ const CreateListing = () => {
           value={name}
           onChange={onChangeHandler}
           placeholder="Name"
-          maxLength="32"
+          maxLength="50"
           minLength="10"
           required
           className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-800 focus:bg-white focus:border-slate-600 mb-6 "
@@ -332,12 +332,12 @@ const CreateListing = () => {
         />
 
         {/* Geolocation */}
-        {!geolocationEnabled && (
+        {geolocationEnabled && (
           <div className="flex space-x-6 justify-start mb-6">
             <div>
               <p className="text-lg font-semibold ">Latitude</p>
               <input
-                type="number"
+                type="string"
                 id="latitude"
                 value={latitude}
                 onChange={onChangeHandler}
@@ -351,7 +351,7 @@ const CreateListing = () => {
             <div>
               <p className="text-lg font-semibold ">Longitude</p>
               <input
-                type="number"
+                type="string"
                 id="longitude"
                 value={longitude}
                 onChange={onChangeHandler}
