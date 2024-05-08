@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../assets/rakesh-real-estate.png';
+import Loo from '../assets/Realtor_logo.png';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const Header = () => {
@@ -31,7 +32,7 @@ const Header = () => {
       <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
         <div>
           <img
-            src={Logo}
+            src={Loo}
             alt="logo"
             className="h-6 cursor-pointer"
             onClick={() => {
